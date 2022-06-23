@@ -23,6 +23,25 @@
 cmake_minimum_required(VERSION 2.8)
 project(onboardsdk)
 
+option(ONBOARD_SDK_ONLY_INTERFACES "Build only interfaces" ON)
+
+if(ONBOARD_SDK_ONLY_INTERFACES)
+    add_library(${PROJECT_NAME} INTERFACE)
+    target_include_directories(
+        ${PROJECT_NAME} INTERFACE
+        api/inc
+        modules/inc/firewall
+        modules/inc/filemgr
+        modules/inc/filemgr/impl
+        modules/inc/payload
+        modules/inc/flight
+        modules/inc/mop
+        platform/inc
+        logger/inc
+        utility/inc
+    )
+else()
+
 set(CMAKE_VERBOSE_MAKEFILE OFF)
 
 set(DJIOSDK 0)
@@ -97,3 +116,4 @@ INSTALL(DIRECTORY osdk-lib/${ARCH}/waypointv2-core-1.0.0/lib/
 ]]
 
 
+endif()
