@@ -29,16 +29,16 @@ if(ONBOARD_SDK_ONLY_INTERFACES)
     add_library(${PROJECT_NAME} INTERFACE)
     target_include_directories(
         ${PROJECT_NAME} INTERFACE
-        api/inc
-        modules/inc/firewall
-        modules/inc/filemgr
-        modules/inc/filemgr/impl
-        modules/inc/payload
-        modules/inc/flight
-        modules/inc/mop
-        platform/inc
-        logger/inc
-        utility/inc
+        osdk-core/api/inc
+        osdk-core/modules/inc/firewall
+        osdk-core/modules/inc/filemgr
+        osdk-core/modules/inc/filemgr/impl
+        osdk-core/modules/inc/payload
+        osdk-core/modules/inc/flight
+        osdk-core/modules/inc/mop
+        osdk-core/platform/inc
+        osdk-core/logger/inc
+        osdk-core/utility/inc
     )
 else()
 
